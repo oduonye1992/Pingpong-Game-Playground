@@ -46,14 +46,14 @@ function moveEverything(){
     ballX += ballSpeedX;
     ballY += ballSpeedY;
     if (ballX >= canvas.width){
-        if (ballY > paddle2Y && ballY < paddle2Y+PADDLE_HEIGHT){
+        if (ballY >= paddle2Y && ballY <= paddle2Y+PADDLE_HEIGHT){
             ballSpeedX = -ballSpeedX;
         } else {
             ballReset();
         }
     }
     if (ballX <= 0) {
-        if (ballY > paddle1Y && ballY < paddle1Y+PADDLE_HEIGHT){
+        if (ballY >= paddle1Y && ballY <= paddle1Y+PADDLE_HEIGHT){
             ballSpeedX = -ballSpeedX;
         } else {
             ballReset();
@@ -75,7 +75,7 @@ function ballReset(){
 function drawEverything(){
     drawRect(0, 0, canvas.width, canvas.height, 'black');
     drawRect(0,paddle1Y-PADDLE_HEIGHT/2, PADDLE_THICKNESS, PADDLE_HEIGHT, 'white'); // left player
-    drawRect(canvas.width-PADDLE_THICKNESS,paddle2Y-PADDLE_HEIGHT/2, PADDLE_THICKNESS, PADDLE_HEIGHT, 'blue'); // right player
+    drawRect(canvas.width-PADDLE_THICKNESS,paddle2Y-PADDLE_HEIGHT/2, PADDLE_THICKNESS, PADDLE_HEIGHT, '#e74c3c'); // right player
     // Draw the ball
     canvasContext.fillStyle = 'white';
     canvasContext.beginPath();
